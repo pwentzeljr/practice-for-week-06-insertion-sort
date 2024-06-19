@@ -17,7 +17,25 @@ function insertionSort(arr) {
   - Insert the unsorted value at the break point
   Return the sorted array
   */
+  const arrCopy = arr.slice();
+  const rv = [];
 
+  while (arrCopy.length > 0) {
+    console.log(rv.join(','));
+    const val = arrCopy.pop();
+
+    rv.push(null);
+
+    let i = rv.length - 1;
+    for (i; i > 0; i--) {
+      if(rv[i-1] < val) break;
+
+      rv[i] = rv[i-1];
+    }
+
+    rv[i] = val;
+  }
+  return rv;
   // Your code here
 }
 
@@ -39,6 +57,20 @@ function insertionSortInPlace(arr) {
   - Increment the dividing pointer and repeat
   Return the mutated array
   */
+  let div = 1;
+  while (div < arr.length){
+    console.log(arr.join(","));
+    const val = arr[div];
+    let i = div;
+    for (i; i > 0; i--) {
+      if (arr[i-1] < val) break;
+
+      arr[i] = arr[i-1];
+    }
+    arr[i] = val;
+
+    div++;
+  }
 
   // Your code here
 }
